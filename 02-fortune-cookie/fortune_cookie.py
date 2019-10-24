@@ -1,5 +1,5 @@
 #Name
-#Period
+#Period 
 import random
 
 f1 = "Help! I’m being held prisoner in a fortune cookie bakery!"

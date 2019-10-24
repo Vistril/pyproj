@@ -1,5 +1,5 @@
 #Seth Camomile
-#Period 7
+#Period 7 
 
 def math(a,b):
     a = int(a)

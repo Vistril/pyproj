@@ -1,4 +1,4 @@
-#Seth Camomile
+#Seth Camomile 
 #Period 7
 
 def make_tri(tri_char, tri_height):

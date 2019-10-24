@@ -1,5 +1,5 @@
 #Seth Camomile
-#Period 7
+#Period 7 
 
 def hello(name, period):
     rep = f"Hello World!\n{name}\nPeriod {period}"

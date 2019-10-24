@@ -1,4 +1,4 @@
-import pip, os
+import pip, os 
 
 print("Checking package installations, please hold...")
 os.system('pip install pytest -q --user --no-warn-script-location')
