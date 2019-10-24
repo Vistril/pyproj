@@ -1,12 +1,27 @@
-#Name
-#Period
-
 def add(attr, amt, character):
-    message = ''
+    pool = character['Pool']
+    if attr in character:
+        if pool < amt:
+            message = str(amt) + ' is more points than you have left in your pool'
+        else: 
+            character[attr] += amt
+            character['Pool'] = character['Pool'] - amt
+            message = str(amt) + " added to " + attr
+    else:
+        message = attr + " is not a valid attribute"
     return message
 
 def remove(attr, amt, character):
-    message = ''
+    pool = character['Pool']
+    if attr in character:
+        if character[attr] < amt:
+            message = str(amt) + ' is more points than you have left in ' + attr
+        else:
+            character[attr] = character[attr] - amt 
+            character['Pool'] = character['Pool'] + amt
+            message = str(amt) + ' removed from ' + attr
+    else:
+        message = attr + " is not a valid attribute"
     return message
 
 def main():
