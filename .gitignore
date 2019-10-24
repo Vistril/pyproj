@@ -124,3 +124,7 @@ dmypy.json
 
 # IDE
 .vscode
+
+# OS Specific
+.DS_Store
+System Volume Information
