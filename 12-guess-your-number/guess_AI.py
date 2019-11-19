@@ -3,11 +3,24 @@
 import random
 
 def end(tries, user):
-    return ""
+  if tries <= 6 and user == 'correct':
+    return f"I knew I could beat you, and in {tries} tries too!"
+  else:
+    return "I ran out of tries! You bested me!"
 
 def high_low(low, high, guess, user, tries, play):
-    return 1, 2, 1, False
-
+  if user == 'high' and tries < 6:
+    high = guess -1
+    tries += 1
+    return low, high, tries, True
+  elif user == 'low' and tries < 6:
+    low = guess + 1
+    tries += 1
+    return low, high, tries, True
+  elif user == 'correct' and tries < 6:
+    return low, high, tries, False
+  elif tries >= 6:
+    return low, high, tries, False
 
 def main():
     print("I am a special mind-reading machine and will guess the number you're thinking of between 1 and 100 in 6 tries or less.")
@@ -27,3 +40,6 @@ def main():
         low, high, tries, play = high_low(low, high, guess, user, tries, play)
         guess = random.randint(low, high)
     print(end(tries, user))
+
+
+
