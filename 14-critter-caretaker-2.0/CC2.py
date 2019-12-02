@@ -1,16 +1,23 @@
-#Name
-#Period
+#Seth Camomile
+#Period 7
+
+import random as r
 
 class Critter(object):
     """A virtual pet"""
     def __init__(self, name):
         self.name = name
-        self.hunger = 0
-        self.boredom = 0
+        self.hunger = r.randint(0, 10)
+        self.boredom = r.randint(0, 10)
 
     def __pass_time(self):
         self.hunger += 1
         self.boredom += 1
+
+    def __str__(self):
+      rep = "Critter Object\n"
+      rep += f"Name: {self.name}\nHunger: {self.hunger}\nBoredom: {self.boredom}\nMood: {self.mood}\n"
+      return rep
 
     @property
     def mood(self):
@@ -26,18 +33,19 @@ class Critter(object):
         return m
 
     def talk(self):
-        print(f"I'm {self.name} and I feel {self.mood} now.\n")
+        rep = f"I'm {self.name} and I feel {self.mood} now.\n"
         self.__pass_time()
+        return rep
 
-    def eat(self):
-        self.hunger -= 4
+    def eat(self, foodCount):
+        self.hunger -= foodCount
         if self.hunger < 0:
             self.hunger = 0
         self.__pass_time()
         return "Brruppp.  Thank you."
 
-    def play(self):
-        self.boredom -= 4
+    def play(self, playCount):
+        self.boredom -= playCount
         if self.boredom < 0:
             self.boredom = 0
         self.__pass_time()
@@ -50,10 +58,9 @@ def main():
 
     choice = None
     while choice != "0":
-        print \
+        print 
         ("""
         Critter Caretaker
-
         0 - Quit
         1 - Listen to your critter
         2 - Feed your critter
@@ -73,11 +80,13 @@ def main():
 
         # feed your critter
         elif choice == "2":
-            print(crit.eat())
+            amt = input("How much would you like to feed your critter?")
+            print(crit.eat(amt))
 
         # play with your critter
         elif choice == "3":
-            print(crit.play())
+            amt = input("How much would you like to play?")
+            print(crit.play(amt))
 
         # secret backdoor
         elif choice == '14':
